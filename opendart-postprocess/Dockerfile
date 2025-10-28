@@ -1,24 +1,16 @@
+# Dockerfile
 FROM python:3.12-slim
 
+# pip 최신화
+RUN python -m pip install --upgrade pip
 
-ENV DEBIAN_FRONTEND=noninteractive
+# PDF 관련 Python 라이브러리 설치 (weasyprint 제외)
+RUN pip install --no-cache-dir \
+    xhtml2pdf \
+    pyhtml2pdf
 
-
-# 최소 시스템 라이브러리 설치 + vim
-RUN apt-get update && apt-get install -y --no-install-recommends \
-libcairo2 \
-libpango-1.0-0 \
-libgdk-pixbuf2.0-0 \
-fonts-dejavu-core \
-fonts-noto-core \
-vim \
-&& apt-get clean \
-&& rm -rf /var/lib/apt/lists/*
-
-COPY requirements.txt ./
-RUN pip install --no-cache-dir --upgrade pip setuptools wheel \
-&& pip install --no-cache-dir -r requirements.txt
-
-
+# 작업 디렉토리
 WORKDIR /app
-CMD ["bash"]
+
+# 기본 커맨드
+CMD ["python3"]

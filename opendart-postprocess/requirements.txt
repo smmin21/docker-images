@@ -1,3 +1,0 @@
-weasyprint
-xhtml2pdf
-pyhtml2pdf
