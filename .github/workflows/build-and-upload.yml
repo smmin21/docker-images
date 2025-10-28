@@ -22,7 +22,7 @@ jobs:
         run: |
           IMAGE_NAME=${{ matrix.image-folder }}
           TAG_NAME=${GITHUB_REF_NAME}
-          docker build -t $IMAGE_NAME:$TAG_NAME ./ ${{ matrix.image-folder }}
+          docker build -t $IMAGE_NAME:$TAG_NAME ./${{ matrix.image-folder }}
 
       - name: Save Docker image to tar.gz
         run: |
