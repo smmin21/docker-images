@@ -20,6 +20,7 @@ RUN python -m pip install --upgrade pip
 RUN pip install --no-cache-dir \
     xhtml2pdf \
     pyhtml2pdf
+    
 # 작업 디렉토리
 WORKDIR /app
 
