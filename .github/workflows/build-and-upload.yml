@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        image-folder: [airflow]   # 추가 이미지 폴더 추가 가능
+        image-folder: [opendart-postprocess]   # 추가 이미지 폴더 추가 가능
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
