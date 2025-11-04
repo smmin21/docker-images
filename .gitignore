@@ -1,1 +1,3 @@
 airflow/*.gz
+.DS_Store
+.github/*
