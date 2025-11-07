@@ -8,10 +8,14 @@ RUN apt-get update && apt-get install -y \
     libffi-dev \
     shared-mime-info \
     fonts-nanum \
+    vim-tiny \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # WeasyPrint 설치
-RUN pip install weasyprint
+RUN pip install --no-cache-dir \
+    weasyprint \
+    lxml==6.0.1 \
+    fastapi==0.121.0
 
 WORKDIR /app
 COPY . /app
